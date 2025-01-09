@@ -4,4 +4,4 @@ pydantic
 scikit-learn==1.4.1.post1
 numpy
 pandas
-
+pytest==8.3.4
