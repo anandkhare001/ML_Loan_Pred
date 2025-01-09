@@ -5,12 +5,10 @@ import pytest
 from prophet import Prophet
 
 class TestClass(unittest.TestCase):
-    # Get the current working directory
-    CURRENT_DIRECTORY = os.getcwd()
 
     def test_loan_pred_model(self):
         # Load Model
-        model_path = os.path.join(self.CURRENT_DIRECTORY, 'LoanPredictor', 'RF_Loan_model.pkl')
+        model_path = 'RF_Loan_model.pkl'
         model = pickle.load(open(model_path, 'rb'))
         data = {
                 "Gender": 1,  "Married": 1,  "Dependents": 1,  "Education": 1,  "Self_Employed": 0,  "LoanAmount": 120,
