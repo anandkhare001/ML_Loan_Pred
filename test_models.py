@@ -2,7 +2,6 @@ import unittest
 import os
 import pickle
 import pytest
-from prophet import Prophet
 
 class TestClass(unittest.TestCase):
 
