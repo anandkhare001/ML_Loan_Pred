@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loan-pred-deployment
+  labels:
+    app: loan-pred
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: loan-pred
+  template:
+    metadata:
+      labels:
+        app: loan-pred
+    spec:
+      containers:
+      - name: loan-pred-app
+        image: anandkhare001/loan-pred:latest
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: loan-pred-service
+spec:
+  type: NodePort
+  selector:
+    app.kubernetes.io/name: loan-pred
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30100
